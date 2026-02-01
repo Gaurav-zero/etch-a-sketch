@@ -1,0 +1,41 @@
+*{
+    background-color: chocolate;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
+.outerBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.container{
+    width: 704px;
+    height: 704px;
+    
+    display: flex;
+    flex-wrap: wrap;
+    border: 5px solid #1e0e1e;
+    box-sizing: border-box;
+}
+
+.childDiv{
+    border: 1px solid black;
+    box-sizing: border-box;
+    width: calc(100%/var(--size));
+    height: calc(100%/var(--size));
+    background-color: bisque;
+}
+
+#gridSize{
+    margin-top: 10px;
+    background-color: cadetblue;
+    padding: 10px;
+    width: 400px;
+    color: black;
+    font-weight: 900;
+}
