@@ -1,6 +1,12 @@
 const outerDiv= document.querySelector(".container");
 const inp= document.querySelector("#gridSize");
 
+function randomRGB(){
+    let f= Math.floor;
+    let r= Math.random;
+    return "rgb("+ f(r()*255)+ "," + f(r()*255) + "," + f(r()*255) +")";
+}
+
 function makeGrid(gridSize= 16){
     while(outerDiv.firstChild){
         outerDiv.removeChild(outerDiv.firstChild);
@@ -16,15 +22,10 @@ function makeGrid(gridSize= 16){
     let cells= document.querySelectorAll(".childDiv");
     cells.forEach((cell) =>{
         cell.addEventListener(("mouseover") , (event)=>{
-            event.target.style.backgroundColor= "black";
+            let randomColor= randomRGB();
+            event.target.style.backgroundColor= randomColor;
         });
     });
-}
-
-function randomRGB(){
-    let f= Math.floor;
-    let r= Math.random;
-    
 }
 
 makeGrid();
