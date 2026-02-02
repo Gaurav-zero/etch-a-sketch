@@ -2,25 +2,30 @@ const outerDiv= document.querySelector(".container");
 const inp= document.querySelector("#gridSize");
 
 function makeGrid(gridSize= 16){
+    while(outerDiv.firstChild){
+        outerDiv.remove(outerDiv.firstChild);
+    }
     outerDiv.style.setProperty("--size", gridSize);
     for(let i=0; i< gridSize*gridSize; ++i){
         let newDiv= document.createElement("div");
         newDiv.classList.add("childDiv");
         outerDiv.appendChild(newDiv);
     }
+
+    let cells= document.querySelectorAll(".childDiv");
+
+    cells.forEach((cell) =>{
+        cell.addEventListener(("mouseover") , (event)=>{
+            event.target.style.backgroundColor= "black";
+        });
+    });
 }
 
 makeGrid();
 
-const cells= document.querySelectorAll(".childDiv");
 
-cells.forEach((cell) =>{
-    cell.addEventListener(("mouseover") , (event)=>{
-        event.target.style.backgroundColor= "black";
-    });
-});
 
 
 inp.addEventListener(("input"), (e)=>{
-    makeGrid(e.value);
+    makeGrid(e.target.value);
 });
